@@ -38,4 +38,80 @@ public class LoginTest {
         boolean result = instance.checkUserName();
         assertEquals(expResult, result);
         }
+        
+           @org.junit.jupiter.api.Test
+        public void testvalidCheckcellphone() {
+        System.out.println("checkUserName");
+         Login instance = new Login();
+       instance.username = "kyle!!!!!!!" ;
+        boolean expResult = true;
+        boolean result = instance.checkUserName();
+        assertEquals(expResult, result);
+        }
+              @org.junit.jupiter.api.Test
+        public void testinvalidCheckcellphone() {
+        System.out.println("checkUserName");
+         Login instance = new Login();
+       instance.username = "kyle!!!!!!!" ;
+        boolean expResult = false;
+        boolean result = instance.checkUserName();
+        assertEquals(expResult, result);
+        }
+        
+              @org.junit.jupiter.api.Test
+        public void testialidCheckpassword() {
+        System.out.println("checkUserName");
+         Login instance = new Login();
+       instance.username = "kyle!!!!!!!" ;
+        boolean expResult = true;
+        boolean result = instance.checkUserName();
+        assertEquals(expResult, result);
+        }
+              @org.junit.jupiter.api.Test
+        public void testinvalidCheckpassword() {
+        System.out.println("checkUserName");
+         Login instance = new Login();
+       instance.username = "kyle!!!!!!!" ;
+        boolean expResult = false;
+        boolean result = instance.checkUserName();
+        assertEquals(expResult, result);
+        }
+              @org.junit.jupiter.api.Test
+        public void testvalidCheckregister() {
+        System.out.println("checkUserName");
+         Login instance = new Login();
+       instance.username = "kyle!!!!!!!" ;
+        boolean expResult = true;
+        boolean result = instance.checkUserName();
+        assertEquals(expResult, result);
+        }
+              @org.junit.jupiter.api.Test
+        public void testinvalidCheckregister() {
+        System.out.println("checkUserName");
+         Login instance = new Login();
+       instance.username = "kyle!!!!!!!" ;
+        boolean expResult = false;
+        boolean result = instance.checkUserName();
+        assertEquals(expResult, result);
+        }
+          @org.junit.jupiter.api.Test
+        public void testvalidChecklogin() {
+        System.out.println("checkUserName");
+         Login instance = new Login();
+       instance.username = "kyle!!!!!!!" ;
+        boolean expResult = true;
+        boolean result = instance.checkUserName();
+        assertEquals(expResult, result);
+        }
+          @org.junit.jupiter.api.Test
+        public void testinvalidChecklogin() {
+        System.out.println("checkUserName");
+         Login instance = new Login();
+       instance.username = "kyle!!!!!!!" ;
+        boolean expResult = false;
+        boolean result = instance.checkUserName();
+        assertEquals(expResult, result);
+        }
 }
+        
+ 
