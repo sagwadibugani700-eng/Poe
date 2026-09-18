@@ -14,87 +14,82 @@ import java.util.HashMap;
 
 public class Login {
 
-    String Firstname;
-    String LastName;
+    String firstName;
+    String lastName;
     String username;
     String password;
     String cellphone;
 
+    // First Name Validation
     public boolean checkFirstName() {
-        if (Firstname.matches("[a-zA-Z]+")) {
-            return true;
-        } else {
-            return false;
-        }
+        return firstName.matches("[a-zA-Z]+");
     }
 
+    // Last Name Validation
     public boolean checkLastName() {
-        if (LastName.matches("[a-zA-Z]+")) {
-            return true;
-        } else {
-            return false;
-        }
+        return lastName.matches("[a-zA-Z]+");
     }
 
+    // Username Validation
     public boolean checkUserName() {
-        if (username.contains("_") && username.length() <= 5) {
-            return true;
-        } else {
-            return false;
-        }
+        return username.contains("_") && username.length() <= 5;
     }
 
+    // Password Validation
     public boolean checkPasswordComplexity() {
-        if (password.length() >= 8
+
+        return password.length() >= 8
                 && password.matches(".*[A-Z].*")
                 && password.matches(".*[a-z].*")
                 && password.matches(".*\\d.*")
-                && password.matches(".*[^a-zA-Z0-9].*")) {
-
-            return true;
-        } else {
-            return false;
-        }
+                && password.matches(".*[^a-zA-Z0-9].*");
     }
 
-    public String checkRecipientCell(String cellphone) {
+    // Cell Number Validation
+    public boolean checkCellPhoneNumber() {
 
-        if (cellphone.matches("^\\+27[0-9]{9}$")
-                || cellphone.matches("^0[0-9]{9}$")) {
-
-            return "Valid number";
-
-        } else {
-
-            return "Invalid number. Please enter a valid South African number.";
-        }
+        return cellphone.matches("^\\+27[0-9]{9}$")
+                || cellphone.matches("^0[0-9]{9}$");
     }
 
+    // Registration
     public String registerUser() {
 
-        if (checkFirstName() == true
-                && checkLastName() == true
-                && checkUserName() == true
-                && checkPasswordComplexity() == true
-                && checkRecipientCell(cellphone).equals("Valid number")) {
-
-            return "Registration successful.";
-        } else {
-
-            return "Registration failed.";
+        if (!checkUserName()) {
+            return "Username is not correctly formatted; please ensure that your username contains an underscore and is no more than five characters in length.";
         }
+
+        if (!checkPasswordComplexity()) {
+            return "Password is not correctly formatted; please ensure that the password contains at least eight characters, a capital letter, a number and a special character.";
+        }
+
+        if (!checkCellPhoneNumber()) {
+            return "Cell number is incorrectly formatted or does not contain an international code; please correct the number and try again.";
+        }
+
+        return "Registration successful";
     }
 
-    public boolean loginUser(String username, String password) {
+    // Login
+    public boolean loginUser(String enteredUsername,
+                             String enteredPassword) {
 
-        if (this.username.equals(username)
-                && this.password.equals(password)) {
+        return username.equals(enteredUsername)
+                && password.equals(enteredPassword);
+    }
 
-            return true;
+    // Login Status
+    public String returnLoginStatus(boolean loginSuccessful) {
 
-        } else {
+        if (loginSuccessful) {
 
-            return false;
+            return "Welcome "
+                    + firstName
+                    + " "
+                    + lastName
+                    + ", it is great to see you.";
         }
+
+        return "Username or password incorrect, please try again.";
     }
 }
